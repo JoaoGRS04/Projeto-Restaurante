@@ -91,8 +91,18 @@ def addprato():
             sobremesas.append(entrada)
             salvar_entradas(sobremesas)
 
-   
-            
+
+def reclamacao():
+        texto = input("Digite sua mensagem aqui e aperte ENTER para enviar:\n")
+
+        if texto.strip() == "":
+            print("A mensagem não pode estar vazia!")
+            return None
+        else:
+            print("Mensagem recebida! Obrigado pelo comentário.")
+            return texto
+        
+
 while True:
     print("\n ---------------------------")
     print("|        BEM-VINDO AO       |")
@@ -101,6 +111,7 @@ while True:
 
     print("[1] - Sou cliente")
     print("[2] - Sou funcionário")
+    print("[4] - Reclamação/sugestão")
     print("[3] - Sair")
 
     opcao = input("Escolha uma das opções acima: ")
@@ -113,6 +124,9 @@ while True:
             print("\n---  AREA DO FUNCIONÁRIO  ---")
             # funcionario()
         case "3":
+            print("\n--- Deixe aqui sua reclamação/sugestão ---")
+            reclamacao()
+        case "4":
             print("\nObrigado pela visita!")
         case _:
             print("\nOpção inválida!")
