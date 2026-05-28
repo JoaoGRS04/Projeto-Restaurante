@@ -15,9 +15,6 @@ def salvar_cardapio(cardapio):
     with open(ARQUIVO, "w", encoding="utf-8") as arquivo:
         json.dump(cardapio, arquivo, indent=4, ensure_ascii=False)
 
-# def cliente 
-
-# def funcionario
 
 while True:
     print("\n ---------------------------")
@@ -28,3 +25,21 @@ while True:
     print("[1] - Sou cliente")
     print("[2] - Sou funcionário")
     print("[3] - Sair")
+
+    opcao = input("Escolha uma das opções acima: ")
+
+    match opcao:
+        case "1": 
+           print ("\n-----  MENU  ----")
+           # cliente()
+           break
+        case "2":
+            print ("\n---  AREA DO FUNCIONÁRIO  ---")
+            # funcionario()
+            break
+        case "3": 
+            print ("\nObrigado pela visita!")
+            break
+        case _: 
+            print ("\nOpção inválida!")
+            break
