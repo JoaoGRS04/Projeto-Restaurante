@@ -56,41 +56,7 @@ def funcionario():
            editpreco()
 
 
-def catprato():
-    print("1 -  entrada")
-    print("2 - prato principal")
-    print("3 -  sobremesa")
-    cat = input("Escolha a categoria")
-    return cat
 
-def addprato():
-    match cat:
-        case "1":
-            entrada = {}
-            entrada["Nome"] = input("Digite o nome da entrada: ")
-            entrada["Preco"] = input("Digite o preco da entrada: ")
-            entrada["Descricao"] = input("Digite a descricao: ")
-            entradas.append(entrada)
-            salvar_entradas(entradas)
-
-        case "2":
-            prato_principal = {}
-            prato_principal["Nome"] = input("Digite o nome do prato_principal: ")
-            prato_principal["Preco"] = input("Digite o preco do prato principal: ")
-            prato_principal["Descricao"] = input("Digite a descricao do prato principal: ")
-            pratos_principais.append(prato_principal)
-            salvar_pratos_principais(pratos_principais)
-
-
-        case "3":
-            sobremesa = {}
-            sobremesa["Nome"] = input("Digite o nome da sobremsa: ")
-            sobremesa["Preco"] = input("Digite o preco da sobremesa: ")
-            sobremesa["Descricao"] = input("Digite a descricao: ")
-            sobremesas.append(entrada)
-            salvar_entradas(sobremesas)
-
-   
             
 while True:
     print("\n ---------------------------")
