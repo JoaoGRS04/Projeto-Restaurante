@@ -1,23 +1,46 @@
 import json
 import os
 
-ARQUIVO = "cardapio.json"
+ARQUIVO_ENTRADAS = "entradas.json"
+ARQUIVO_PRATOS = "pratos_principais.json"
+ARQUIVO_SOBREMESAS = "sobremesas.json"
 
 
-def carregar_cardapio():
-    if os.path.exists(ARQUIVO):
-        with open(ARQUIVO, "r", encoding="utf-8") as arquivo:
+def carregar_entradas():
+    if os.path.exists(ARQUIVO_ENTRADAS):
+        with open(ARQUIVO_ENTRADAS, "r", encoding="utf-8") as arquivo:
             return json.load(arquivo)
     return []
 
 
-def salvar_cardapio(cardapio):
-    with open(ARQUIVO, "w", encoding="utf-8") as arquivo:
-        json.dump(cardapio, arquivo, indent=4, ensure_ascii=False)
+def salvar_entradas(entradas):
+    with open(ARQUIVO_ENTRADAS, "w", encoding="utf-8") as arquivo:
+        json.dump(entradas, arquivo, indent=4, ensure_ascii=False)
 
-# def cliente 
 
-# def funcionario
+def carregar_pratos_principais():
+    if os.path.exists(ARQUIVO_PRATOS):
+        with open(ARQUIVO_PRATOS, "r", encoding="utf-8") as arquivo:
+            return json.load(arquivo)
+    return []
+
+
+def salvar_pratos_principais(pratos_principais):
+    with open(ARQUIVO_PRATOS, "w", encoding="utf-8") as arquivo:
+        json.dump(pratos_principais, arquivo, indent=4, ensure_ascii=False)
+
+
+def carregar_sobremesas():
+    if os.path.exists(ARQUIVO_SOBREMESAS):
+        with open(ARQUIVO_SOBREMESAS, "r", encoding="utf-8") as arquivo:
+            return json.load(arquivo)
+    return []
+
+
+def salvar_sobremesas(sobremesas):
+    with open(ARQUIVO_SOBREMESAS, "w", encoding="utf-8") as arquivo:
+        json.dump(sobremesas, arquivo, indent=4, ensure_ascii=False)
+
 
 while True:
     print("\n ---------------------------")
@@ -28,3 +51,17 @@ while True:
     print("[1] - Sou cliente")
     print("[2] - Sou funcionário")
     print("[3] - Sair")
+
+    opcao = input("Escolha uma das opções acima: ")
+
+    match opcao:
+        case "1":
+            print("\n-----  MENU  ----")
+            # cliente()
+        case "2":
+            print("\n---  AREA DO FUNCIONÁRIO  ---")
+            # funcionario()
+        case "3":
+            print("\nObrigado pela visita!")
+        case _:
+            print("\nOpção inválida!")
