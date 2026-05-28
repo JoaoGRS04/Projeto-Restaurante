@@ -1,6 +1,19 @@
 import json
+import os
 
-cardapio {}
+ARQUIVO = "cardapio.json"
+
+
+def carregar_cardapio():
+    if os.path.exists(ARQUIVO):
+        with open(ARQUIVO, "r", encoding="utf-8") as arquivo:
+            return json.load(arquivo)
+    return []
+
+
+def salvar_cardapio(cardapio):
+    with open(ARQUIVO, "w", encoding="utf-8") as arquivo:
+        json.dump(cardapio, arquivo, indent=4, ensure_ascii=False)
 
 # def cliente 
 
