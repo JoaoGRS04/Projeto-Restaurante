@@ -4,10 +4,10 @@
 <br>
 <p>O programa abre com uma interface que te da 4 opções sendo:</p>
 <ol>
-    <li>[1] Acesso a parte dos funcionários, podendo remover, adcionar e alterar o preço de um prato</li>
-    <li>[2] Acesso ao cardápio, com os menus de entrada, prato principal e sobremesa</li>
-    <li>[3] Abre a possibilidade do cliente enviar uma reclamação/sugestão</li>
-    <li>[4] encerra o programa</li>
+    <li> Acesso a parte dos funcionários, podendo remover, adcionar e alterar o preço de um prato</li>
+    <li> Acesso ao cardápio, com os menus de entrada, prato principal e sobremesa</li>
+    <li> Abre a possibilidade do cliente enviar uma reclamação/sugestão</li>
+    <li> encerra o programa</li>
 </ol>
 
 <br>
