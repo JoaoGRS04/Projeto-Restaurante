@@ -110,10 +110,10 @@ def removeprato():
             del sobremesas[indice]
             salvar_sobremesas(sobremesas)
             print("Sobremesa removida com sucesso!")
-
-
-
             
+
+
+
 while True:
     print("\n ---------------------------")
     print("|        BEM-VINDO AO       |")
