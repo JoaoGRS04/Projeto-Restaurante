@@ -4,6 +4,7 @@ import os
 ARQUIVO_ENTRADAS = "entradas.json"
 ARQUIVO_PRATOS = "pratos_principais.json"
 ARQUIVO_SOBREMESAS = "sobremesas.json"
+ARQUIVO_RECLAMACOES = "reclamacoes.json"
 
 
 def carregar_entradas():
@@ -42,18 +43,34 @@ def salvar_sobremesas(sobremesas):
         json.dump(sobremesas, arquivo, indent=4, ensure_ascii=False)
 
 
+def carregar_reclamacoes():
+    if os.path.exists(ARQUIVO_RECLAMACOES):
+        with open(ARQUIVO_RECLAMACOES, "r", encoding="utf-8") as arquivo:
+            return json.load(arquivo)
+    return []
+
+
+def salvar_reclamacoes(reclamacoes):
+    with open(ARQUIVO_RECLAMACOES, "w", encoding="utf-8") as arquivo:
+        json.dump(reclamacoes, arquivo, indent=4, ensure_ascii=False)
+
+
 entradas = carregar_entradas()
 pratos_principais = carregar_pratos_principais()
 sobremesas = carregar_sobremesas()
+reclamacoes = carregar_reclamacoes()
 
 
 def reclamacao():
-    texto = input("Digite sua mensagem aqui e aperte ENTER para enviar:\n")
+    reclamacao = {}
+    reclamacao["mensagem"] = input("\nDigite sua mensagem aqui e aperte ENTER para enviar:\n\n")
 
-    if texto.strip() == "":
+    if reclamacao["mensagem"].strip() == "":
         print("\nA mensagem não pode estar vazia!\n")
     else:
         print("\nMensagem recebida! Obrigado pelo comentário.\n")
+        reclamacoes.append(reclamacao)
+        salvar_reclamacoes(reclamacoes)
 
 
 def cliente():
