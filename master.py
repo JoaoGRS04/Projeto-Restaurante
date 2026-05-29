@@ -88,13 +88,13 @@ def catprato():
     print("\n1 - Entrada")
     print("2 - Prato principal")
     print("3 - Sobremesa")
-    cat = int(input("\nEscolha a categoria: "))
+    cat = input("\nEscolha a categoria: ")
     return cat
 
 
 def addprato():
     match catprato():
-        case 1:
+        case "1":
             entrada = {}
             entrada["Nome"] = input("Digite o nome da entrada: ")
             entrada["Preco"] = float(input("Digite o preco da entrada: "))
@@ -102,7 +102,7 @@ def addprato():
             entradas.append(entrada)
             salvar_entradas(entradas)
 
-        case 2:
+        case "2":
             prato_principal = {}
             prato_principal["Nome"] = input(
                 "Digite o nome do prato principal: ")
@@ -113,13 +113,89 @@ def addprato():
             pratos_principais.append(prato_principal)
             salvar_pratos_principais(pratos_principais)
 
-        case 2:
+        case "3":
             sobremesa = {}
             sobremesa["Nome"] = input("Digite o nome da sobremsa: ")
             sobremesa["Preco"] = float(input("Digite o preco da sobremesa: "))
             sobremesa["Descricao"] = input("Digite a descricao: ")
             sobremesas.append(sobremesa)
             salvar_sobremesas(sobremesas)
+
+
+def removeprato():
+    choicecat = input("Digite a categoria do prato: ")
+    choice = input("Digite o índice do prato: ")
+    indice = int(choice)
+
+    match choicecat:
+        case "1":
+            del entradas[indice]
+            salvar_entradas(entradas)
+            print("Entrada removida com sucesso!")
+
+        case "2":
+            del pratos_principais[indice]
+            salvar_pratos_principais(pratos_principais)
+            print("Prato principal removido com sucesso!")
+
+        case "3":
+            del sobremesas[indice]
+            salvar_sobremesas(sobremesas)
+            print("Sobremesa removida com sucesso!")
+
+
+def editarprato():
+    cliente_cardapio()
+    print('\nEditando um prato')
+    print('-' * 10)
+    print('[1] - Entrada')
+    print('[2] - Principal')
+    print('[3] - Sobremesa\n')
+    choicecat = int(input("Digite a categoria do prato: "))
+    choice = int(input("Digite o número do prato que deseja editar: "))
+    indice = choice - 1
+
+    match choicecat:
+        case 1:
+            prato_atual = entradas[indice]
+            print(f"\nEditando: {prato_atual['Nome']}")
+
+            prato_atual["Nome"] = input("Digite o NOVO nome da entrada: ")
+            prato_atual["Preco"] = float(
+                input("Digite o NOVO preco da entrada: "))
+            prato_atual["Descricao"] = input("Digite a NOVA descricao: ")
+
+            salvar_entradas(entradas)
+            print("Entrada atualizada com sucesso!\n")
+            input('Pressione ENTER para continuar...')
+
+        case 2:
+            prato_atual = pratos_principais[indice]
+            print(f"\nEditando: {prato_atual['Nome']}")
+
+            prato_atual["Nome"] = input(
+                "Digite o NOVO nome do prato principal: ")
+            prato_atual["Preco"] = float(input(
+                "Digite o NOVO preco do prato principal: "))
+            prato_atual["Descricao"] = input(
+                "Digite a NOVA descricao do prato principal: ")
+
+            salvar_pratos_principais(pratos_principais)
+            print("Prato principal atualizado com sucesso!\n")
+            input('Pressione ENTER para continuar...')
+
+        case 3:
+            prato_atual = sobremesas[indice]
+            print(f"\nEditando: {prato_atual['Nome']}")
+
+            prato_atual["Nome"] = input("Digite o NOVO nome da sobremesa: ")
+            prato_atual["Preco"] = float(
+                input("Digite o NOVO preco da sobremesa: "))
+            prato_atual["Descricao"] = input("Digite a NOVA descricao: ")
+
+            salvar_sobremesas(sobremesas)
+            print("Sobremesa atualizada com sucesso!\n")
+            input('Pressione ENTER para continuar...')
 
 
 while True:
