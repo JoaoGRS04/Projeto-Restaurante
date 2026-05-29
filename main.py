@@ -46,17 +46,17 @@ entradas = carregar_entradas()
 pratos_principais = carregar_pratos_principais()
 sobremesas = carregar_sobremesas()
 
+
 def reclamacao():
     texto = input("Digite sua mensagem aqui e aperte ENTER para enviar:\n")
 
     if texto.strip() == "":
         print("\nA mensagem não pode estar vazia!\n")
-        input('Pressione ENTER para continuar...')
     else:
         print("\nMensagem recebida! Obrigado pelo comentário.\n")
-        input('Pressione ENTER para continuar...')
 
-def cliente_cardapio():
+
+def cliente():
     os.system('cls')
     print("---  AREA DO CLIENTE  ---\n")
     print("[1] - Cardápio: ")
@@ -83,7 +83,7 @@ def cliente_cardapio():
                 print(
                     f'{i} - {s["Nome"]} / Preço: R$ {s["Preco"]:.2f} / Descrição: {s["Descricao"]}')
         case 2:
-            reclamcao()
+            # reclamacao
 
 
 def funcionario():
@@ -142,7 +142,7 @@ def addprato():
 
 
 def removeprato():
-    cliente_cardapio()
+    cliente()
     print('\nRemovendo um prato')
     print('-' * 10)
     print('[1] - Entrada')
@@ -169,7 +169,7 @@ def removeprato():
 
 
 def editarprato():
-    cliente_cardapio()
+    cliente()
     print('\nEditando um prato')
     print('-' * 10)
     print('[1] - Entrada')
@@ -237,7 +237,7 @@ while True:
 
     match opcao:
         case 1:
-            cliente_cardapio()
+            cliente()
             input('Pressione ENTER para continuar...')
         case 2:
             funcionario()
