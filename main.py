@@ -83,7 +83,7 @@ def cliente():
                 print(
                     f'{i} - {s["Nome"]} / Preço: R$ {s["Preco"]:.2f} / Descrição: {s["Descricao"]}')
         case 2:
-            # reclamacao
+            reclamacao()
 
 
 def funcionario():
