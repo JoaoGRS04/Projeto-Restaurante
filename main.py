@@ -122,6 +122,33 @@ def addprato():
             salvar_sobremesas(sobremesas)
 
 
+def removeprato():
+    cliente_cardapio()
+    print('\nRemovendo um prato')
+    print('-' * 10)
+    print('[1] - Entrada')
+    print('[2] - Principal')
+    print('[3] - Sobremesa\n')
+    choicecat = int(input("Digite a categoria do prato: "))
+    choice = int(input("Digite o número do prato: "))
+    indice = choice - 1
+
+    match choicecat:
+        case 1:
+            entrada_removida = entradas[indice]["Nome"]
+            del entradas[indice]
+            salvar_entradas(entradas)
+            print(f"\n{entrada_removida} removida com sucesso!\n")
+            input('Pressione ENTER para continuar...')
+
+        case 2:
+            principal_removido = pratos_principais[indice]["Nome"]
+            del pratos_principais[indice]
+            salvar_pratos_principais(pratos_principais)
+            print(f"\n{principal_removido} removido com sucesso!\n")
+            input('Pressione ENTER para continuar...')
+
+
 while True:
     os.system('cls')
     print("\n ---------------------------")
