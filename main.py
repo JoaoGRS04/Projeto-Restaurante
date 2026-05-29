@@ -53,7 +53,7 @@ def funcionario():
        case "2":
            removeprato()
        case "3":
-           editpreco()
+           editarprato()
 
 
 def catprato():
@@ -111,7 +111,47 @@ def removeprato():
             salvar_sobremesas(sobremesas)
             print("Sobremesa removida com sucesso!")
             
+def editarprato():
+    choicecat = input("Digite a categoria do prato (1-Entrada, 2-Principal, 3-Sobremesa): ")
+    choice = input("Digite o índice do prato que deseja editar: ")
+    
+    indice = int(choice)
 
+    match choicecat:
+        case "1":
+            # Busca o prato atual para mostrar ao usuário
+            prato_atual = entradas[indice]
+            print(f"\nEditando: {prato_atual['Nome']}")
+            
+            # Pede os novos dados
+            prato_atual["Nome"] = input("Digite o NOVO nome da entrada: ")
+            prato_atual["Preco"] = input("Digite o NOVO preco da entrada: ")
+            prato_atual["Descricao"] = input("Digite a NOVA descricao: ")
+            
+            salvar_entradas(entradas)
+            print("Entrada atualizada com sucesso!")
+            
+        case "2":
+            prato_atual = pratos_principais[indice]
+            print(f"\nEditando: {prato_atual['Nome']}")
+            
+            prato_atual["Nome"] = input("Digite o NOVO nome do prato principal: ")
+            prato_atual["Preco"] = input("Digite o NOVO preco do prato principal: ")
+            prato_atual["Descricao"] = input("Digite a NOVA descricao do prato principal: ")
+            
+            salvar_pratos_principais(pratos_principais)
+            print("Prato principal atualizado com sucesso!")
+            
+        case "3":
+            prato_atual = sobremesas[indice]
+            print(f"\nEditando: {prato_atual['Nome']}")
+            
+            prato_atual["Nome"] = input("Digite o NOVO nome da sobremesa: ")
+            prato_atual["Preco"] = input("Digite o NOVO preco da sobremesa: ")
+            prato_atual["Descricao"] = input("Digite a NOVA descricao: ")
+            
+            salvar_sobremesas(sobremesas)
+            print("Sobremesa atualizada com sucesso!")
 
 
 while True:
