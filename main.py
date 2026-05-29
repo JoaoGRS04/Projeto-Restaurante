@@ -90,7 +90,29 @@ def addprato():
             sobremesas.append(entrada)
             salvar_entradas(sobremesas)
 
-   
+def removeprato():
+    choicecat = input ("Digite a categoria do prato: ")
+    choice = input("Digite o índice do prato: ")
+    indice = int(choice)
+
+    match choicecat:
+        case "1":
+            del entradas[indice]
+            salvar_entradas(entradas)
+            print("Entrada removida com sucesso!")
+            
+        case "2":
+            del pratos_principais[indice]
+            salvar_pratos_principais(pratos_principais)
+            print("Prato principal removido com sucesso!")
+            
+        case "3":
+            del sobremesas[indice]
+            salvar_sobremesas(sobremesas)
+            print("Sobremesa removida com sucesso!")
+
+
+
             
 while True:
     print("\n ---------------------------")
