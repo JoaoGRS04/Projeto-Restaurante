@@ -46,6 +46,15 @@ entradas = carregar_entradas()
 pratos_principais = carregar_pratos_principais()
 sobremesas = carregar_sobremesas()
 
+def reclamacao():
+    texto = input("Digite sua mensagem aqui e aperte ENTER para enviar:\n")
+
+    if texto.strip() == "":
+        print("\nA mensagem não pode estar vazia!\n")
+        input('Pressione ENTER para continuar...')
+    else:
+        print("\nMensagem recebida! Obrigado pelo comentário.\n")
+        input('Pressione ENTER para continuar...')
 
 def cliente_cardapio():
     os.system('cls')
@@ -74,7 +83,7 @@ def cliente_cardapio():
                 print(
                     f'{i} - {s["Nome"]} / Preço: R$ {s["Preco"]:.2f} / Descrição: {s["Descricao"]}')
         case 2:
-            # reclamaçao
+            reclamcao()
 
 
 def funcionario():
