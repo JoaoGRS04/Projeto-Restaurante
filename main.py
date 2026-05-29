@@ -98,32 +98,11 @@ def addprato():
             sobremesa["Nome"] = input("Digite o nome da sobremsa: ")
             sobremesa["Preco"] = float(input("Digite o preco da sobremesa: "))
             sobremesa["Descricao"] = input("Digite a descricao: ")
-            sobremesas.append(sobremesa)
-            salvar_sobremesas(sobremesas)
+            sobremesas.append(entrada)
+            salvar_entradas(sobremesas)
 
-
-def cliente_cardapio():
-    os.system('cls')
-    print("-----  MENU  ----\n")
-    print('Entradas')
-    print('-' * 10)
-    for i, e in enumerate(entradas, start=1):
-        print(
-            f'{i} - {e["Nome"]} / Preço: R$ {e["Preco"]:.2f} / Descrição: {e["Descricao"]}\n')
-    print('\nPratos principais')
-    print('-' * 10)
-    for i, p in enumerate(pratos_principais, start=1):
-        print(
-            f'{i} - {p["Nome"]} / Preço: R$ {p["Preco"]:.2f} / Descrição: {p["Descricao"]}')
-    print('\nSobremesas')
-    print('-' * 10)
-    for i, s in enumerate(sobremesas, start=1):
-        print(
-            f'{i} - {s["Nome"]} / Preço: R$ {s["Preco"]:.2f} / Descrição: {s["Descricao"]}')
-    input('Pressione ENTER para continuar...')
-    os.system('cls')
-
-
+   
+            
 while True:
     print("\n ---------------------------")
     print("|        BEM-VINDO AO       |")
@@ -132,16 +111,19 @@ while True:
 
     print("[1] - Sou cliente")
     print("[2] - Sou funcionário")
+    print("[4] - Reclamação/sugestão")
     print("[3] - Sair")
 
     opcao = int(input("Escolha uma das opções acima: "))
 
     match opcao:
-        case 1:
-            cliente_cardapio()
-        case 2:
-            funcionario()
-        case 3:
+        case "1":
+            print("\n-----  MENU  ----")
+            # cliente()
+        case "2":
+            print("\n---  AREA DO FUNCIONÁRIO  ---")
+            # funcionario()
+        case "3":
             print("\nObrigado pela visita!")
             break
         case _:
