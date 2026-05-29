@@ -149,6 +149,60 @@ def removeprato():
             input('Pressione ENTER para continuar...')
 
 
+def editarprato():
+    cliente_cardapio()
+    print('\nEditando um prato')
+    print('-' * 10)
+    print('[1] - Entrada')
+    print('[2] - Principal')
+    print('[3] - Sobremesa\n')
+    choicecat = int(input("Digite a categoria do prato: "))
+    choice = int(input("Digite o número do prato que deseja editar: "))
+    indice = choice - 1
+
+    match choicecat:
+        case 1:
+            prato_atual = entradas[indice]
+            print(f"\nEditando: {prato_atual['Nome']}")
+
+            prato_atual["Nome"] = input("Digite o NOVO nome da entrada: ")
+            prato_atual["Preco"] = float(
+                input("Digite o NOVO preco da entrada: "))
+            prato_atual["Descricao"] = input("Digite a NOVA descricao: ")
+
+            salvar_entradas(entradas)
+            print("\nEntrada atualizada com sucesso!\n")
+            input('Pressione ENTER para continuar...')
+
+        case 2:
+            prato_atual = pratos_principais[indice]
+            print(f"\nEditando: {prato_atual['Nome']}")
+
+            prato_atual["Nome"] = input(
+                "Digite o NOVO nome do prato principal: ")
+            prato_atual["Preco"] = float(input(
+                "Digite o NOVO preco do prato principal: "))
+            prato_atual["Descricao"] = input(
+                "Digite a NOVA descricao do prato principal: ")
+
+            salvar_pratos_principais(pratos_principais)
+            print("\nPrato principal atualizado com sucesso!\n")
+            input('Pressione ENTER para continuar...')
+
+        case 3:
+            prato_atual = sobremesas[indice]
+            print(f"\nEditando: {prato_atual['Nome']}")
+
+            prato_atual["Nome"] = input("Digite o NOVO nome da sobremesa: ")
+            prato_atual["Preco"] = float(
+                input("Digite o NOVO preco da sobremesa: "))
+            prato_atual["Descricao"] = input("Digite a NOVA descricao: ")
+
+            salvar_sobremesas(sobremesas)
+            print("\nSobremesa atualizada com sucesso!\n")
+            input('Pressione ENTER para continuar...')
+
+
 while True:
     os.system('cls')
     print("\n ---------------------------")
