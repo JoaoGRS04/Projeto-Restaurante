@@ -74,6 +74,26 @@ def reclamacao():
         salvar_reclamacoes(reclamacoes)
 
 
+def cardapio():
+    os.system('cls')
+    print("-----  MENU  ----\n")
+    print('Entradas')
+    print('-' * 10)
+    for i, e in enumerate(entradas, start=1):
+        print(
+            f'{i} - {e["Nome"]} / Preço: R$ {e["Preco"]:.2f} / Descrição: {e["Descricao"]}\n')
+    print('\nPratos principais')
+    print('-' * 10)
+    for i, p in enumerate(pratos_principais, start=1):
+        print(
+            f'{i} - {p["Nome"]} / Preço: R$ {p["Preco"]:.2f} / Descrição: {p["Descricao"]}')
+    print('\nSobremesas')
+    print('-' * 10)
+    for i, s in enumerate(sobremesas, start=1):
+        print(
+            f'{i} - {s["Nome"]} / Preço: R$ {s["Preco"]:.2f} / Descrição: {s["Descricao"]}')
+
+
 def cliente():
     os.system('cls')
     print("---  AREA DO CLIENTE  ---\n")
@@ -83,42 +103,9 @@ def cliente():
 
     match escolha:
         case 1:
-            os.system('cls')
-            print("-----  MENU  ----\n")
-            print('Entradas')
-            print('-' * 10)
-            for i, e in enumerate(entradas, start=1):
-                print(
-                    f'{i} - {e["Nome"]} / Preço: R$ {e["Preco"]:.2f} / Descrição: {e["Descricao"]}\n')
-            print('\nPratos principais')
-            print('-' * 10)
-            for i, p in enumerate(pratos_principais, start=1):
-                print(
-                    f'{i} - {p["Nome"]} / Preço: R$ {p["Preco"]:.2f} / Descrição: {p["Descricao"]}')
-            print('\nSobremesas')
-            print('-' * 10)
-            for i, s in enumerate(sobremesas, start=1):
-                print(
-                    f'{i} - {s["Nome"]} / Preço: R$ {s["Preco"]:.2f} / Descrição: {s["Descricao"]}')
+            cardapio()
         case 2:
             reclamacao()
-
-
-def funcionario():
-    os.system('cls')
-    print("---  AREA DO FUNCIONÁRIO  ---\n")
-    print("[1] - Adcionar prato: ")
-    print("[2] - Remover prato: ")
-    print("[3] - Editar prato: ")
-    escolha = int(input("\nDigite sua escolha: "))
-
-    match escolha:
-        case 1:
-            addprato()
-        case 2:
-            removeprato()
-        case 3:
-            editarprato()
 
 
 def catprato():
@@ -133,34 +120,35 @@ def addprato():
     match catprato():
         case 1:
             entrada = {}
-            entrada["Nome"] = input("Digite o nome da entrada: ")
+            entrada["Nome"] = input("Digite o nome da entrada: ").capitalize()
             entrada["Preco"] = float(input("Digite o preco da entrada: "))
-            entrada["Descricao"] = input("Digite a descricao: ")
+            entrada["Descricao"] = input("Digite a descricao: ").capitalize()
             entradas.append(entrada)
             salvar_entradas(entradas)
 
         case 2:
             prato_principal = {}
             prato_principal["Nome"] = input(
-                "Digite o nome do prato principal: ")
+                "Digite o nome do prato principal: ").capitalize()
             prato_principal["Preco"] = float(
                 input("Digite o preco do prato principal: "))
             prato_principal["Descricao"] = input(
-                "Digite a descricao do prato principal: ")
+                "Digite a descricao do prato principal: ").capitalize()
             pratos_principais.append(prato_principal)
             salvar_pratos_principais(pratos_principais)
 
         case 3:
             sobremesa = {}
-            sobremesa["Nome"] = input("Digite o nome da sobremesa: ")
+            sobremesa["Nome"] = input(
+                "Digite o nome da sobremesa: ").capitalize()
             sobremesa["Preco"] = float(input("Digite o preco da sobremesa: "))
-            sobremesa["Descricao"] = input("Digite a descricao: ")
+            sobremesa["Descricao"] = input("Digite a descricao: ").capitalize()
             sobremesas.append(sobremesa)
             salvar_sobremesas(sobremesas)
 
 
 def removeprato():
-    cliente()
+    cardapio()
     print('\nRemovendo um prato')
     print('-' * 10)
     print('[1] - Entrada')
@@ -187,7 +175,7 @@ def removeprato():
 
 
 def editarprato():
-    cliente()
+    cardapio()
     print('\nEditando um prato')
     print('-' * 10)
     print('[1] - Entrada')
@@ -202,10 +190,12 @@ def editarprato():
             prato_atual = entradas[indice]
             print(f"\nEditando: {prato_atual['Nome']}")
 
-            prato_atual["Nome"] = input("Digite o NOVO nome da entrada: ")
+            prato_atual["Nome"] = input(
+                "Digite o NOVO nome da entrada: ").capitalize()
             prato_atual["Preco"] = float(
                 input("Digite o NOVO preco da entrada: "))
-            prato_atual["Descricao"] = input("Digite a NOVA descricao: ")
+            prato_atual["Descricao"] = input(
+                "Digite a NOVA descricao: ").capitalize()
 
             salvar_entradas(entradas)
             print("\nEntrada atualizada com sucesso!\n")
@@ -216,11 +206,11 @@ def editarprato():
             print(f"\nEditando: {prato_atual['Nome']}")
 
             prato_atual["Nome"] = input(
-                "Digite o NOVO nome do prato principal: ")
+                "Digite o NOVO nome do prato principal: ").capitalize()
             prato_atual["Preco"] = float(input(
                 "Digite o NOVO preco do prato principal: "))
             prato_atual["Descricao"] = input(
-                "Digite a NOVA descricao do prato principal: ")
+                "Digite a NOVA descricao do prato principal: ").capitalize()
 
             salvar_pratos_principais(pratos_principais)
             print("\nPrato principal atualizado com sucesso!\n")
@@ -230,14 +220,33 @@ def editarprato():
             prato_atual = sobremesas[indice]
             print(f"\nEditando: {prato_atual['Nome']}")
 
-            prato_atual["Nome"] = input("Digite o NOVO nome da sobremesa: ")
+            prato_atual["Nome"] = input(
+                "Digite o NOVO nome da sobremesa: ").capitalize()
             prato_atual["Preco"] = float(
                 input("Digite o NOVO preco da sobremesa: "))
-            prato_atual["Descricao"] = input("Digite a NOVA descricao: ")
+            prato_atual["Descricao"] = input(
+                "Digite a NOVA descricao: ").capitalize()
 
             salvar_sobremesas(sobremesas)
             print("\nSobremesa atualizada com sucesso!\n")
             input('Pressione ENTER para continuar...')
+
+
+def funcionario():
+    os.system('cls')
+    print("---  AREA DO FUNCIONÁRIO  ---\n")
+    print("[1] - Adcionar prato: ")
+    print("[2] - Remover prato: ")
+    print("[3] - Editar prato: ")
+    escolha = int(input("\nDigite sua escolha: "))
+
+    match escolha:
+        case 1:
+            addprato()
+        case 2:
+            removeprato()
+        case 3:
+            editarprato()
 
 
 while True:
@@ -256,7 +265,7 @@ while True:
     match opcao:
         case 1:
             cliente()
-            input('Pressione ENTER para continuar...')
+            input('\nPressione ENTER para continuar...')
         case 2:
             funcionario()
         case 3:
