@@ -63,7 +63,8 @@ reclamacoes = carregar_reclamacoes()
 
 def reclamacao():
     reclamacao = {}
-    reclamacao["mensagem"] = input("\nDigite sua mensagem aqui e aperte ENTER para enviar:\n\n")
+    reclamacao["mensagem"] = input(
+        "\nDigite sua mensagem aqui e aperte ENTER para enviar:\n\n")
 
     if reclamacao["mensagem"].strip() == "":
         print("\nA mensagem não pode estar vazia!\n")
@@ -149,9 +150,9 @@ def addprato():
             pratos_principais.append(prato_principal)
             salvar_pratos_principais(pratos_principais)
 
-        case 2:
+        case 3:
             sobremesa = {}
-            sobremesa["Nome"] = input("Digite o nome da sobremsa: ")
+            sobremesa["Nome"] = input("Digite o nome da sobremesa: ")
             sobremesa["Preco"] = float(input("Digite o preco da sobremesa: "))
             sobremesa["Descricao"] = input("Digite a descricao: ")
             sobremesas.append(sobremesa)
