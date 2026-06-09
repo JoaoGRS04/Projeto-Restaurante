@@ -86,12 +86,12 @@ def cardapio():
     print('-' * 10)
     for i, p in enumerate(pratos_principais, start=1):
         print(
-            f'{i} - {p["Nome"]} / Preço: R$ {p["Preco"]:.2f} / Descrição: {p["Descricao"]}')
+            f'{i} - {p["Nome"]} / Preço: R$ {p["Preco"]:.2f} / Descrição: {p["Descricao"]}\n')
     print('\nSobremesas')
     print('-' * 10)
     for i, s in enumerate(sobremesas, start=1):
         print(
-            f'{i} - {s["Nome"]} / Preço: R$ {s["Preco"]:.2f} / Descrição: {s["Descricao"]}')
+            f'{i} - {s["Nome"]} / Preço: R$ {s["Preco"]:.2f} / Descrição: {s["Descricao"]}\n')
 
 
 def cliente():
